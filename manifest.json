@@ -1,0 +1,18 @@
+{
+  "name": "D.lyh Schedule",
+  "short_name": "D.lyh",
+  "description": "Personal time blocking — Phase 1",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
