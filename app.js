@@ -4,8 +4,8 @@ const DOMAINS = [
     id: 'sleep',
     label: 'Sleep',
     hours: 7,
-    color: '#1c2534',
-    textColor: '#5b7aa8',
+    color: '#D8E2EE',
+    textColor: '#3A567A',
     fixed: true,
     defaultStart: '21:30',
     defaultEnd: '04:30',
@@ -14,8 +14,8 @@ const DOMAINS = [
     id: 'ulk',
     label: 'ULK',
     hours: 8,
-    color: '#142b14',
-    textColor: '#52a852',
+    color: '#CFDECF',
+    textColor: '#2F6030',
     fixed: true,
     defaultStart: '07:00',
     defaultEnd: '14:00',
@@ -24,8 +24,8 @@ const DOMAINS = [
     id: 'prudential',
     label: 'Prudential',
     hours: 5,
-    color: '#2b1414',
-    textColor: '#c05a5a',
+    color: '#E8D0D0',
+    textColor: '#883030',
     fixed: false,
     defaultStart: '14:00',
     defaultEnd: '19:00',
@@ -34,8 +34,8 @@ const DOMAINS = [
     id: 'personal',
     label: 'Personal',
     hours: 2,
-    color: '#251e0a',
-    textColor: '#c09a40',
+    color: '#EAE0CA',
+    textColor: '#7A5520',
     fixed: false,
     defaultStart: '04:30',
     defaultEnd: '06:30',
@@ -44,8 +44,8 @@ const DOMAINS = [
     id: 'ai',
     label: 'AI Hours',
     hours: 2,
-    color: '#111a2e',
-    textColor: '#4a80d4',
+    color: '#D4D6EC',
+    textColor: '#3A3E80',
     fixed: false,
     defaultStart: '19:00',
     defaultEnd: '21:00',
@@ -231,7 +231,7 @@ function renderDayView() {
     const clampH   = Math.min(h, totalH - clampTop);
     blocks.push(`
       <div class="t-block domain-${d.id} fixed"
-           style="top:${clampTop}px;height:${clampH}px;background:${d.color};color:${d.textColor}">
+           style="top:${clampTop}px;height:${clampH}px">
         <div class="t-block-label">${d.label}</div>
         <div class="t-block-time">${fmtTime(d.defaultStart)} – ${fmtTime(d.defaultEnd)}</div>
       </div>`);
@@ -240,7 +240,7 @@ function renderDayView() {
   // Sleep end marker at top
   blocks.push(`
     <div class="t-block-unplanned" style="top:0px;height:${PX_PER_MIN * 30}px;background:transparent;border:none">
-      <span style="color:var(--sleep-text);font-size:11px">← Wake up 4:30am</span>
+      <span style="color:var(--sleep-text);font-size:11px;font-style:italic">Wake up 4:30am</span>
     </div>`);
 
   // Flexible blocks
@@ -254,7 +254,7 @@ function renderDayView() {
       : '';
     blocks.push(`
       <div class="t-block domain-${d.id}"
-           style="top:${top}px;height:${h}px;background:${d.color};color:${d.textColor}"
+           style="top:${top}px;height:${h}px"
            data-edit="${d.id}">
         <div class="t-block-label">${d.label}</div>
         <div class="t-block-time">${fmtTime(p.start)} – ${fmtTime(p.end)}</div>
@@ -265,7 +265,7 @@ function renderDayView() {
   // Sleep start at 9:30pm = bottom
   blocks.push(`
     <div class="t-block domain-sleep fixed"
-         style="top:${totalH - 30 * PX_PER_MIN}px;height:${30 * PX_PER_MIN}px;background:var(--sleep);color:var(--sleep-text)">
+         style="top:${totalH - 30 * PX_PER_MIN}px;height:${30 * PX_PER_MIN}px">
       <div class="t-block-label">Sleep →</div>
       <div class="t-block-time">9:30pm – 4:30am</div>
     </div>`);
@@ -682,9 +682,10 @@ function showToast(msg) {
   t.textContent = msg;
   Object.assign(t.style, {
     position: 'fixed', bottom: '90px', left: '50%', transform: 'translateX(-50%)',
-    background: '#222', color: '#e8e8e8', padding: '10px 18px', borderRadius: '20px',
-    fontSize: '13px', zIndex: '200', opacity: '0',
-    transition: 'opacity 0.2s', pointerEvents: 'none',
+    background: '#26211A', color: '#F7F2EA', padding: '10px 20px', borderRadius: '20px',
+    fontSize: '13px', fontFamily: "'DM Sans', system-ui, sans-serif",
+    zIndex: '200', opacity: '0', transition: 'opacity 0.2s', pointerEvents: 'none',
+    boxShadow: '0 4px 16px rgba(38,33,26,0.18)',
   });
   document.body.appendChild(t);
   requestAnimationFrame(() => { t.style.opacity = '1'; });

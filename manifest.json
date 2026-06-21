@@ -4,8 +4,8 @@
   "description": "Personal time blocking — Phase 1",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#F7F2EA",
+  "theme_color": "#F7F2EA",
   "orientation": "portrait",
   "icons": [
     {
